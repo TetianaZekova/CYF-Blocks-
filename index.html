@@ -1,0 +1,117 @@
+<html>
+    <p>
+        The <button id="noun1">dog</button> <button id="verb">saw</button> the
+        <button id="adjective">white</button>
+        <button id="noun2">cat</button>
+      </p>
+      <p>
+      <ul id= "Mylist" style="list-style-type:none;">
+      <li>Dog</li>
+      <li>Cat</li>
+      <li>Bird</li>
+      </ul>
+      <button id="DayMode">Day Mode</button>
+      <button id="NightMode">Night Mode</button>
+      </p>
+      
+      <p>
+      <button id="Click">Click</button>
+      </p>
+      
+      <p><img id="img" src="https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/hfpqyV7B-IMG-Dubai-UAE.jpg" height = 80px widht = 80px></p>
+    </html>
+
+<script>
+    function getWords(type) {
+  // Return words of a given type, or all words if type is 'WORD'
+  let words = [
+    {type: 'ADJECTIVE', value: 'big'},
+    {type: 'ADJECTIVE', value: 'purple'},
+    {type: 'ADJECTIVE', value: 'new'},
+    {type: 'ADJECTIVE', value: 'interesting'},
+    {type: 'ADJECTIVE', value: 'curious'},
+    {type: 'ADJECTIVE', value: 'happy'},
+    {type: 'ADJECTIVE', value: 'busy'},
+    {type: 'ADJECTIVE', value: 'tiny'},
+    {type: 'NOUN', value: 'umbrella'},
+    {type: 'NOUN', value: 'knee'},
+    {type: 'NOUN', value: 'banana'},
+    {type: 'NOUN', value: 'platypus'},
+    {type: 'NOUN', value: 'cat'},
+    {type: 'NOUN', value: 'mouse'},
+    {type: 'NOUN', value: 'house'},
+    {type: 'VERB', value: 'impressed'},
+    {type: 'VERB', value: 'honoured'},
+    {type: 'VERB', value: 'saw'},
+    {type: 'VERB', value: 'ate'},
+    {type: 'VERB', value: 'surprised'},
+    {type: 'VERB', value: 'annoyed'},
+    {type: 'VERB', value: 'touched'},
+    {type: 'VERB', value: 'understood'},
+    {type: 'VERB', value: 'taught'},
+  ];
+  return words.filter(word => type === 'WORD' || word.type === type).map(word => word.value);
+}
+
+function randomInt(n) {
+  // Return a random number from in [0, n[
+  return Math.floor(Math.random()*n);
+}
+
+function randomMember(arr) {
+  // Return a random member of the array
+  return arr[randomInt(arr.length)]
+}
+
+
+
+document.getElementById('noun1').addEventListener('click', (event) => {
+  let element_noun1 = document.getElementById('noun1');
+  element_noun1.innerText = randomMember(getWords('NOUN'));
+
+});
+
+document.getElementById('verb').addEventListener('click', (event) => {
+  let element_verb = document.getElementById('verb');
+  element_verb.innerText = randomMember(getWords('VERB'));
+
+});
+
+document.getElementById('adjective').addEventListener('click', (event) => {
+  let element_adjective = document.getElementById('adjective');
+  element_adjective.innerText = randomMember(getWords('ADJECTIVE'));
+
+});
+
+document.getElementById('noun2').addEventListener('click', (event) => {
+  let element_noun2 = document.getElementById('noun2');
+  element_noun2.innerText = randomMember(getWords('NOUN'));
+
+});
+
+document.getElementById('DayMode').addEventListener('click', (event) => {
+  let element_Mylist = document.getElementById('Mylist');
+  element_Mylist.style.backgroundColor = '#ffffcc';
+  element_Mylist.style.color = '#666666';
+
+});
+
+document.getElementById('NightMode').addEventListener('click', (event) => {
+  let element_Mylist2 = document.getElementById('Mylist');
+  element_Mylist2.style.backgroundColor = '#666666';
+  element_Mylist2.style.color = '#ffffff';
+
+});
+
+document.getElementById('Click').addEventListener('click', (event) => {
+  let element_Click = document.getElementById('Click');
+  element_Click.style.backgroundColor = '#00cccc';
+
+});
+
+document.getElementById('img').addEventListener('click', (event) => {
+  let element_img = document.getElementById('img');
+  element_img.setAttribute("src", 'https://gulfbusiness.com/wp-content/uploads/img-world-of-adventures-17.jpg');
+
+});
+</script>
